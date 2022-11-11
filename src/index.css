@@ -1,0 +1,17 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.dark{
+  --primary : #16213E;
+  --secondary : #0F3460;
+  --tertiary : #533483;
+  --ternery : #E94560;
+}
+.light{
+  --primary : #FF8787;
+  --secondary : #F8C4B4;
+  --tertiary : #E5EBB2;
+  --ternery : #BCE29E;
+}
