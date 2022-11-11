@@ -1,13 +1,10 @@
 import React from 'react';
 import { useState,useEffect } from 'react';
 import './MobileAppBar.css';
-import ShoppingCartSharpIcon from '@mui/icons-material/ShoppingCartSharp';
-import PedalBikeIcon from '@mui/icons-material/PedalBike';
-import MiscellaneousServicesIcon from '@mui/icons-material/MiscellaneousServices';
 import InfoIcon from '@mui/icons-material/Info';
-import pp from "../../assets/jpg/IMG20221025172200.jpg"
-import { Avatar } from '@mui/material';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
 import BottomNavigation from '@mui/material/BottomNavigation';
+import FilterListIcon from '@mui/icons-material/FilterList';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
@@ -38,20 +35,12 @@ const MobileAppBar = () => {
       label: 'About Us'
     },
     {
-      icon: <PedalBikeIcon/>,
-      label: 'Cycles'
+      icon: <FilterListIcon/>,
+      label: 'Remainders'
     },
     {
-      icon: <MiscellaneousServicesIcon/>,
-      label: 'Accessories'
-    },
-    {
-      icon: <ShoppingCartSharpIcon/>,
-      label: 'Your Cart'
-    },
-    {
-      icon: <Avatar alt="Remy Sharp" src={pp} />,
-      label: 'Profile'
+      icon: <Brightness4Icon/>,
+      label: 'Dark switch'
     }
   ];
   return (
@@ -63,7 +52,7 @@ const MobileAppBar = () => {
           onChange={(event, newValue) => {
             setValue(newValue);
           }}
-          sx={{ backgroundColor: '#FF570C !important', 
+          sx={{ backgroundColor: '#3B3486 !important', 
                 position: 'fixed', 
                 display:{xxs:'flex',md:'none'}, 
                 bottom:'0px', 

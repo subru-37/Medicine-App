@@ -1,20 +1,19 @@
 import React from 'react';
 import { Route, Routes } from "react-router-dom";
 import './App.css';
-import ResponsiveAppBar from './Components/navbar/ResponsiveAppBar';
-import MobileAppBar from './Components/navbar/MobileAppBar';
-// import Landing from './pages/Landing/Landing';
-function App() {
+import ResponsiveAppBar from './Components/Navbar/ResponsiveAppBar';
+import MobileAppBar from './Components/Navbar/MobileAppBar';
+import Landing from './pages/Landing/Landing';
+export default function App() {
 
   return (
     <div className="App">
       <ResponsiveAppBar/>
       <MobileAppBar/>
-      {/* <Routes>
+      <Routes>
         <Route path='/' element={<Landing/>}/>
-      </Routes> */}
+      </Routes>
     </div>
   )
 }
 
-export default App

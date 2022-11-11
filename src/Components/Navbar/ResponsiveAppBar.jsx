@@ -12,23 +12,11 @@ const pages = ['About us','Form','Remainder'];
 
 
 const ResponsiveAppBar = () => {
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
 
   return (
-    <AppBar sx={{backgroundColor: '#FF570C !important', position: 'static'}}>
+    <AppBar sx={{backgroundColor: '#3B3486 !important', position: 'static',top:'0px'}}>
       <Container maxWidth="xl">
-        <Toolbar disableGutters sx={{justifyContent: 'space-between'}}>
+        <Toolbar disableGutters sx={{justifyContent: 'space-around'}}>
 		{/* add your logo here replacing adbicon */}
           <Box
             sx={{
@@ -40,7 +28,7 @@ const ResponsiveAppBar = () => {
               fontSize: '1.5rem'
             }}
           >
-            <Link className="Links" to='/'>Ace Bikes</Link>
+            <Link className="Links" to='/'>Med Tracker</Link>
           </Box>
 
 
@@ -53,21 +41,22 @@ const ResponsiveAppBar = () => {
               color: 'inherit',
               textDecoration: 'none',
               fontSize: '1.5rem',
-              justifyContent: 'center'
+              justifyContent: 'center',
+              width: '100vw'
             }}
           >
-            <Link className="Links" to='/'>Ace Bikes</Link>
+            <Link className="Links" to='/'>Med Tracker</Link>
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent:'flex-end', maxWidth:'75vw',fontFamily: "'Montserrat', sans-serif" }}>
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 <p style={{margin: '0 1rem'}}>{page}</p>
               </Button>
             ))}
+            <Button><Brightness4Icon/></Button>
           </Box>
         </Toolbar>
       </Container>
