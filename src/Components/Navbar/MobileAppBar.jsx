@@ -7,7 +7,8 @@ import BottomNavigation from '@mui/material/BottomNavigation';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-
+import ViewQuiltIcon from '@mui/icons-material/ViewQuilt';
+import { Link } from 'react-router-dom';
 const MobileAppBar = () => {
   const theme = createTheme({
     breakpoints: {
@@ -32,15 +33,23 @@ const MobileAppBar = () => {
   const pages = [
     {
       icon: <InfoIcon/>,
-      label: 'About Us'
+      label: 'About Us',
+      Link: "/"
     },
     {
       icon: <FilterListIcon/>,
-      label: 'Remainders'
+      label: 'Remainders',
+      Link: "/remainders"
+    },
+    {
+      icon: <ViewQuiltIcon/>,
+      label: 'Submit Form',
+      Link: "/form"
     },
     {
       icon: <Brightness4Icon/>,
-      label: 'Dark switch'
+      label: 'Dark switch',
+      Link: "/"
     }
   ];
   return (
@@ -62,9 +71,10 @@ const MobileAppBar = () => {
                 flexWrap: {xxs: 'wrap', xs: 'nowrap'}}}
         >
           {pages.map(x=>{
-            const {icon , label} = x;
+            const {icon , label, Link} = x;
             return(
-              <BottomNavigationAction key={label} label={label} icon={icon} />
+              <a href={Link} className='Links'><BottomNavigationAction key={label} label={label} icon={icon} />{label}</a>
+              //<Link key={label} to={Link}><BottomNavigationAction label={label} icon={icon} /></Link>
             );
           })}
         </BottomNavigation>

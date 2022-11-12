@@ -7,8 +7,22 @@ import Button from '@mui/material/Button';
 import './ResponsiveAppBar.css';
 import {Link} from 'react-router-dom';
 import pp from "../../assets/jpg/IMG20221025172200.jpg";
+import FormPage from '../../Pages/Form/Form';
+import RemaindersPage from '../../Pages/Remainders/Remainders';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
-const pages = ['About us','Form','Remainder'];
+const pages = [
+  {
+    Name:'About us',
+    Link: "/"
+  },
+  {
+    Name:'Form',
+    Link: "/form"
+  },
+  {
+    Name:'Remainders',
+    Link: "/remainders"
+  }];
 
 
 const ResponsiveAppBar = () => {
@@ -48,14 +62,18 @@ const ResponsiveAppBar = () => {
             <Link className="Links" to='/'>Med Tracker</Link>
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent:'flex-end', maxWidth:'75vw',fontFamily: "'Montserrat', sans-serif" }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
+            {pages.map((page) => {
+              const {Name, Link} = page
+              return(
+                <Button
+                key={Name}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                <p style={{margin: '0 1rem'}}>{page}</p>
+                {/* <Link className='Links' to={Link}><p style={{margin: '0 1rem'}}>{Name}</p></Link> */}
+                <a href={Link} className='Links'><p style={{margin: '0 1rem'}}>{Name}</p></a>
               </Button>
-            ))}
+              );
+            })}
             <Button><Brightness4Icon/></Button>
           </Box>
         </Toolbar>
