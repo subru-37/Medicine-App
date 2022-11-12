@@ -42,16 +42,16 @@ p{
     background-color: white;
     opacity: 0.8;
 }
-/* .slideshow{
-    width: 100%;
+.slideshow{
+    /* width: 100%;
     max-width: 100vw;
     max-height: 100vh;
     min-height: 0;
     min-width: 0;
     display: flex;
     align-items: center;
-    justify-content: center;
-} */
+    justify-content: center; */
+}
 .a,.b,.c{
     min-height: 75vh;
 }
@@ -75,6 +75,9 @@ p{
     }
     .c{
         align-items: flex-start;
+    }
+    .slideshow{
+        display: none;
     }
 }
 @media screen and (max-width: 400px){

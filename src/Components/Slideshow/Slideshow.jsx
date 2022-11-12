@@ -40,7 +40,7 @@ const ZoomInExample = () => {
       });
     return (
     <ThemeProvider theme={theme}>
-        <div className='slideshow'>
+        <div className='slideshow' style={{display: { xs: 'none', md: 'flex' }}}>
             <Zoom scale={1} indicators={true} pauseOnHover={true} canSwipe={true}>
                 {data.map((each, index) => {
                 const {content, class1} = each;
