@@ -3,10 +3,13 @@
     /* display: flex; */
     /* align-items: center; */
     /* justify-content: center; */
+    background-image: url('../src/assets/jpg/Wairau.png');
+    background-position: center;
+    background-size: cover;
 }
 
 
-@media only screen and (min-width: 900px){
+/* @media only screen and (min-width: 900px){
     .App{
       background-image: url('../src/assets/jpg/bgp.jpg');
     }
@@ -17,4 +20,4 @@
       background-position: center;
       background-size: cover;
     }
-  }
+  } */

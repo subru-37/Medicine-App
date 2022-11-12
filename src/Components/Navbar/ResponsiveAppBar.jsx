@@ -10,6 +10,7 @@ import pp from "../../assets/jpg/IMG20221025172200.jpg";
 import FormPage from '../../Pages/Form/Form';
 import RemaindersPage from '../../Pages/Remainders/Remainders';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
+import { NavLink } from "react-router-dom";
 const pages = [
   {
     Name:'About us',
@@ -28,7 +29,7 @@ const pages = [
 const ResponsiveAppBar = () => {
 
   return (
-    <AppBar sx={{backgroundColor: '#3B3486 !important', position: 'static',top:'0px'}}>
+    <AppBar sx={{backgroundColor: '#66bb6a !important', position: 'static',top:'0px'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters sx={{justifyContent: 'space-around'}}>
 		{/* add your logo here replacing adbicon */}
@@ -67,10 +68,10 @@ const ResponsiveAppBar = () => {
               return(
                 <Button
                 key={Name}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 2, color: '#000063', display: 'block' }}
               >
-                {/* <Link className='Links' to={Link}><p style={{margin: '0 1rem'}}>{Name}</p></Link> */}
-                <a href={Link} className='Links'><p style={{margin: '0 1rem'}}>{Name}</p></a>
+                <NavLink end className='Links' to={Link}><p style={{margin: '0 1rem'}}>{Name}</p></NavLink>
+                {/* <a href={Link} className='Links'><p style={{margin: '0 1rem'}}>{Name}</p></a> */}
               </Button>
               );
             })}

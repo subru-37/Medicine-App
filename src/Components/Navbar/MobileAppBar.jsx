@@ -8,7 +8,8 @@ import FilterListIcon from '@mui/icons-material/FilterList';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import ViewQuiltIcon from '@mui/icons-material/ViewQuilt';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 const MobileAppBar = () => {
   const theme = createTheme({
     breakpoints: {
@@ -29,7 +30,7 @@ const MobileAppBar = () => {
       setWidth(window.innerWidth)
     })
   },[width])
-
+  let history = useNavigate();
   const pages = [
     {
       icon: <InfoIcon/>,
@@ -61,7 +62,7 @@ const MobileAppBar = () => {
           onChange={(event, newValue) => {
             setValue(newValue);
           }}
-          sx={{ backgroundColor: '#3B3486 !important', 
+          sx={{ backgroundColor: '#66bb6a !important', 
                 position: 'fixed', 
                 display:{xxs:'flex',md:'none'}, 
                 bottom:'0px', 
@@ -73,8 +74,7 @@ const MobileAppBar = () => {
           {pages.map(x=>{
             const {icon , label, Link} = x;
             return(
-              <a href={Link} className='Links'><BottomNavigationAction key={label} label={label} icon={icon} />{label}</a>
-              //<Link key={label} to={Link}><BottomNavigationAction label={label} icon={icon} /></Link>
+            <BottomNavigationAction onClick={()=>(history(Link))} sx={{padding: '0',color: '#000063'}} label={label} icon={icon}/>
             );
           })}
         </BottomNavigation>
