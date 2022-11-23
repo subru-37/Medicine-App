@@ -62,7 +62,7 @@ const MobileAppBar = () => {
           onChange={(event, newValue) => {
             setValue(newValue);
           }}
-          sx={{ backgroundColor: '#67daff !important', 
+          sx={{ backgroundColor: '#F49D1A !important', 
                 position: 'fixed', 
                 display:{xxs:'flex',md:'none'}, 
                 bottom:'0px', 

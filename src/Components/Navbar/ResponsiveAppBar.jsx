@@ -29,7 +29,7 @@ const pages = [
 const ResponsiveAppBar = () => {
 
   return (
-    <AppBar sx={{backgroundColor: '#67daff !important', position: 'static',top:'0px'}}>
+    <AppBar sx={{backgroundColor: '#F49D1A !important', position: 'static',top:'0px'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters sx={{justifyContent: 'space-around'}}>
 		{/* add your logo here replacing adbicon */}

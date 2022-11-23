@@ -14,10 +14,10 @@
     "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "^5.10.9",
     "@mui/material": "^5.10.13",
+    "aos": "^2.3.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.4.3",
-    "react-slideshow-image": "^4.0.5"
+    "react-router-dom": "^6.4.3"
   },
   "devDependencies": {
     "@types/react": "^18.0.24",

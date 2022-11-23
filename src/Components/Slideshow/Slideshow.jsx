@@ -1,31 +1,24 @@
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import React from 'react';
-import { Zoom } from 'react-slideshow-image';
-import 'react-slideshow-image/dist/styles.css';
+import Card from "./Card";
 import './Slideshow.css'
 const ZoomInExample = () => {
-    const data = [
+    const data = 
+    [
         {
-            content: <div className="box"><h1>Med Tracker</h1><p>The one and only medicine tracker app you would need</p></div>,
-            class1: 'a'
+            title: 'Med Tracker',
+            content: 'The one and only medicine tracker app you would need'
         },
         {
-            content:
-                    <div className="box">
-                        <h1>How to use it?</h1>
-                        <ul>
-                            <li>Submit form to get remainders</li>
-                            <li>See the schedules you have planned</li>
-                            <li>Edit and delete the planned schedules</li>
-                        </ul>
-                    </div>,
-            class1: 'b'
+            title: 'How to use it?',
+            content: 'Submit form to get remainders, See the schedules you have planned Edit and delete the planned schedules'
         },
         {
-            content: <div className="box"><h1>Pre Requisites</h1><p>Allow notifications please</p></div>,
-            class1: 'c'
+            title: 'Pre Requisites',
+            content: 'Allow notifications please'
         }
-       ]
+
+    ]
     const theme = createTheme({
         breakpoints: {
           values: {
@@ -39,20 +32,18 @@ const ZoomInExample = () => {
         },
       });
     return (
-    <ThemeProvider theme={theme}>
-        <div className='slideshow' style={{display: { xs: 'none', md: 'flex' }}}>
-            <Zoom scale={1} indicators={true} pauseOnHover={true} canSwipe={true}>
-                {data.map((each, index) => {
-                const {content, class1} = each;
+        <div className="parent_box">
+            {data.map((x)=>{
                 return(
-                    <div key={index} className={class1} style={{maxWidth: '100vw'}}>
-                        {content}
+                    <div className="boxes">
+                        <Card
+                            title={x.title}
+                            content={x.content}
+                        />
                     </div>
                 );
                 })}
-            </Zoom>
         </div>
-    </ThemeProvider>
     );
 };
 

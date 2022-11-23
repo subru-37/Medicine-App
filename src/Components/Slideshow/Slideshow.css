@@ -1,95 +1,11 @@
-ul{
-    list-style: none;
-    padding: 10px;
+.boxes{
+    width: 30vw;
+    padding: 20px;
+    min-height: 200px;
 }
-li{
-    padding: 5px 0;
-}
-p{
-    padding: 10px;
-}
-.a{
-    background-image: url('../../assets/jpg/1.jpg');
-    background-position: center;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    flex-direction: column;
-}
-.b{
-    background-image: url('../../assets/jpg/2.jpg');
-    background-position: right;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: column;
-}
-.c{
-    background-image: url('../../assets/jpg/3.jpg');
-    background-position: right;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: column;
-}
-.box{
-    min-height: auto;
-    box-sizing: border-box;
-    margin: 3rem;
-    background-color: white;
-    opacity: 0.8;
-}
-.slideshow{
-    /* width: 100%;
-    max-width: 100vw;
-    max-height: 100vh;
-    min-height: 0;
-    min-width: 0;
+.parent_box{
     display: flex;
     align-items: center;
-    justify-content: center; */
-}
-.a,.b,.c{
-    min-height: 75vh;
-}
-@media screen and (max-width: 900px){
-    .box{
-        min-height: 20vh;
-        /* box-sizing: border-box; */
-        margin: 3rem;
-        background-color: white;
-        opacity: 0.8;
-    }
-
-    .a,.b,.c{
-        min-height: 50vh;
-    }
-    .a{
-        align-items: flex-end;
-    }
-    .b{
-        align-items: flex-start;
-    }
-    .c{
-        align-items: flex-start;
-    }
-    .slideshow{
-        display: none;
-    }
-}
-@media screen and (max-width: 400px){
-    .box{
-        min-height: 20vh;
-        box-sizing: border-box;
-        margin: 3rem;
-        background-color: white;
-        opacity: 0.8;
-    }
-    .a,.b,.c{
-        align-items: center;
-        background-position: center;
-    }
+    justify-content: center;
+    padding: 10vw;
 }
