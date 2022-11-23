@@ -15,7 +15,6 @@ export default function Form() {
     Frequency: '',
     Dosage:'',
     Time:''
-
   });
   function handleChange(event) {
     const { name, value } = event.target;
@@ -26,42 +25,56 @@ export default function Form() {
       };
     });
   }
-  function handleChangeAuto1(event){
-    const {value} = event.target;
+  function handleChangeAuto1(e,v,r){
     const name = ref0.current.getAttribute('name')
-    console.log(value)
-    setValue(
-      (preValue)=>{
-        return{
-          ...preValue,
-          [name]: value
+    if (r === "reset") {
+      setValue(
+        (preValue)=>{
+          return{
+            ...preValue,
+            [name]: r === "reset" ? v : null
+          }
         }
-      }
-    )
+      )
+    }
   }
-  function handleChangeAuto2(event){
-    const {value} = event.target;
+  function handleChangeAuto2(e,v,r){
     const name = ref1.current.getAttribute('name')
-    console.log(value)
-    setValue(
-      (preValue)=>{
-        return{
-          ...preValue,
-          [name]: value
+    if (r === "reset") {
+      setValue(
+        (preValue)=>{
+          return{
+            ...preValue,
+            [name]: r === "reset" ? v : null
+          }
         }
-      }
-    )
+      )
+    }
   }
-  useEffect(()=>{
+  // useEffect(()=>{
+  //   console.log(value)
+  // },[value])
+  function onClicked(event){
     console.log(value)
-  },[value])
+    setValue({
+      Name: "",
+      Age: "",
+      History:"",
+      MName: '',
+      Frequency: '',
+      Dosage:'',
+      Time:''
+    });
+    event.preventDefault();
+  }
   return (
     <div className='parent'>
-        <form>
+        <form onSubmit={onClicked} className='formbox'>
           <div className='subbox'>
             <h4>Enter Your Name: </h4> 
             <TextField 
                 name='Name' 
+                value={value.Name}
                 onChange={handleChange} 
                 sx={{width: '70%'}} 
                 label="Sweet name please" 
@@ -71,7 +84,8 @@ export default function Form() {
           <div className='subbox'> 
             <h4>Age: </h4>
             <TextField 
-                name='Age' 
+                name='Age'
+                value={value.Age} 
                 onChange={handleChange} 
                 label="Enter your age" 
                 variant="standard" 
@@ -82,6 +96,7 @@ export default function Form() {
             <TextField 
                 multiline
                 minRows={2}
+                value={value.History}
                 name='History' 
                 onChange={handleChange} 
                 label="If any?" 
@@ -93,6 +108,7 @@ export default function Form() {
             <TextField 
                 name='MName' 
                 onChange={handleChange} 
+                value={value.MName}
                 label="Fill this CAREFULLY!" 
                 variant="standard" 
                 id="standard-basic"/>
@@ -121,6 +137,7 @@ export default function Form() {
               renderInput={(params) => <TextField {...params} label="Enter Timing" />}
             />
           </div>
+          <button>Submit</button>
         </form>
     </div>
   )
