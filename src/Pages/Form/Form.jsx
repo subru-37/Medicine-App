@@ -6,13 +6,11 @@ export default function Form() {
   const ref0 = useRef();
   const ref1 = useRef();
   const freq = ['1','2','3','4']
-  const [freqvalue, setFreqValue] = useState('');
   const [value, setValue] = useState({
     Name: "",
     Age: "",
     History:"",
     MName: '',
-    Frequency: '',
     Dosage:'',
     Time:''
   });
@@ -26,30 +24,26 @@ export default function Form() {
     });
   }
   function handleChangeAuto1(e,v,r){
-    const name = ref0.current.getAttribute('name')
-    if (r === "reset") {
-      setValue(
-        (preValue)=>{
-          return{
-            ...preValue,
-            [name]: r === "reset" ? v : null
-          }
+    const name = ref0.current.getAttribute('name');
+    setValue(
+      (preValue)=>{
+        return{
+          ...preValue,
+          [name]: v
         }
-      )
-    }
+      }
+    )
   }
   function handleChangeAuto2(e,v,r){
-    const name = ref1.current.getAttribute('name')
-    if (r === "reset") {
-      setValue(
-        (preValue)=>{
-          return{
-            ...preValue,
-            [name]: r === "reset" ? v : null
-          }
+    const name = ref1.current.getAttribute('name');
+    setValue(
+      (preValue)=>{
+        return{
+          ...preValue,
+          [name]: v
         }
-      )
-    }
+      }
+    )
   }
   // useEffect(()=>{
   //   console.log(value)
@@ -61,7 +55,6 @@ export default function Form() {
       Age: "",
       History:"",
       MName: '',
-      Frequency: '',
       Dosage:'',
       Time:''
     });
@@ -118,9 +111,10 @@ export default function Form() {
             <Autocomplete
               ref={ref0}
               id="combo-box-Dosage"
-              onInputChange={handleChangeAuto1}
+              onChange={handleChangeAuto1}
               name='Dosage'
               options={freq}
+              inputValue={value.Dosage}
               sx={{width: '70%'}}
               renderInput={(params) => <TextField {...params} label="Enter Dosage" />}
             />
@@ -131,7 +125,8 @@ export default function Form() {
               ref={ref1}
               id="combo-box-Time"
               name='Time'
-              onInputChange={handleChangeAuto2}
+              inputValue={value.Time}
+              onChange={handleChangeAuto2}
               options={['Before','After']}
               sx={{width: '70%'}}
               renderInput={(params) => <TextField {...params} label="Enter Timing" />}
