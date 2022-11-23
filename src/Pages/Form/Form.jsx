@@ -2,7 +2,7 @@ import React,{useEffect, useState, useRef} from 'react'
 import './Form.css'
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
-export default function Form() {
+export default function Form(props) {
   const ref0 = useRef();
   const ref1 = useRef();
   const freq = ['1','2','3','4']
@@ -49,7 +49,8 @@ export default function Form() {
   //   console.log(value)
   // },[value])
   function onClicked(event){
-    console.log(value)
+    // console.log(value)
+    props.onAdd(value)
     setValue({
       Name: "",
       Age: "",
@@ -67,6 +68,7 @@ export default function Form() {
             <h4>Enter Your Name: </h4> 
             <TextField 
                 name='Name' 
+                autoComplete='off'
                 value={value.Name}
                 onChange={handleChange} 
                 sx={{width: '70%'}} 
@@ -81,6 +83,7 @@ export default function Form() {
                 value={value.Age} 
                 onChange={handleChange} 
                 label="Enter your age" 
+                autoComplete='off'
                 variant="standard" 
                 id="standard-basic"/>
           </div>
@@ -94,6 +97,7 @@ export default function Form() {
                 onChange={handleChange} 
                 label="If any?" 
                 variant="standard" 
+                autoComplete='off'
                 id="standard-basic"/>
           </div>
           <div className='subbox'>
@@ -104,6 +108,7 @@ export default function Form() {
                 value={value.MName}
                 label="Fill this CAREFULLY!" 
                 variant="standard" 
+                autoComplete='off'
                 id="standard-basic"/>
           </div>
           <div className='subbox'>

@@ -11,7 +11,7 @@ const ZoomInExample = () => {
         },
         {
             title: 'How to use it?',
-            content: 'Submit form to get remainders, See the schedules you have planned Edit and delete the planned schedules'
+            content: 'Submit form to add remainders, See the schedules you have planned'
         },
         {
             title: 'Pre Requisites',

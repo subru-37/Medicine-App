@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react';
+import React,{useEffect,useState} from 'react';
 import { Route, Routes } from "react-router-dom";
 import './App.css';
 import ResponsiveAppBar from './Components/Navbar/ResponsiveAppBar';
@@ -12,6 +12,15 @@ export default function App() {
   useEffect(() => {
     AOS.init({offset: 120,delay: 0,duration: 1000});
   })
+  const [allvalues, setAllValues] = useState([]);
+  function onSubmitted(note) {
+    setAllValues((preValue) => {
+      return [...preValue, note];
+    });
+  }
+  // useEffect(()=>{
+  //   console.log(allvalues)
+  // },[allvalues])
   return (
     
     <div className="App">
@@ -19,8 +28,8 @@ export default function App() {
       <MobileAppBar/>
       <Routes>
         <Route path="/" element={<Landing/>}/>
-        <Route path="/form" element={<Form/>}/>
-        <Route path="/remainders" element={<Remainders/>}/>
+        <Route path="/form" element={<Form onAdd={onSubmitted}/>}/>
+        <Route path="/remainders" element={<Remainders data={allvalues}/>}/>
       </Routes>
     </div>
   )
