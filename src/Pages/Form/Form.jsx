@@ -1,15 +1,14 @@
-import React,{useContext, useState, useRef} from 'react'
+import React,{useContext, useState, useRef,useEffect} from 'react'
 import './Form.css'
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { ThemeContext } from '../../App';
 export default function Form(props) {
   const {theme} = useContext(ThemeContext);
-  const styles = theme => ({
-    multilineColor:{
-        color:theme?'white':'inherit'
-    }
-});
+  const [width, setWidth] = useState(window.innerWidth);
+  useEffect(()=>{
+    addEventListener("resize", ()=>(setWidth(window.innerWidth)));
+  })
   const ref0 = useRef();
   const ref1 = useRef();
   const freq = ['1','2','3','4']
@@ -71,10 +70,10 @@ export default function Form(props) {
   return (
     <div className='parent'>
         <form style={{color:theme?'green':'black'}} onSubmit={onClicked} className='formbox'>
-          <div className='subbox'>
+          <div data-aos='fade-right' className='subbox'>
             <h4>Enter Your Name: </h4> 
             <TextField 
-                name='Name' 
+                name='Name'
                 required
                 autoComplete='off'
                 value={value.Name}
@@ -103,7 +102,7 @@ export default function Form(props) {
                 label="Sweet name please" 
                 id="outlined-basic"/>
           </div>
-          <div className='subbox'> 
+          <div data-aos='fade-left' className='subbox'> 
             <h4>Age: </h4>
             <TextField 
                 name='Age'
@@ -135,7 +134,7 @@ export default function Form(props) {
                 variant={theme ? 'outlined': 'standard'} 
                 id="standard-basic"/>
           </div>
-          <div className='subbox'>
+          <div data-aos='fade-right' className='subbox'>
             <h4>Any Medical History?</h4> 
             <TextField 
                 multiline
@@ -167,7 +166,7 @@ export default function Form(props) {
                 autoComplete='off'
                 id="standard-basic"/>
           </div>
-          <div className='subbox'>
+          <div data-aos='fade-left' className='subbox'>
             <h4>Medicine Name: </h4> 
             <TextField 
                 name='MName' 
@@ -201,7 +200,7 @@ export default function Form(props) {
                 autoComplete='off'
                 id="standard-basic"/>
           </div>
-          <div className='subbox'>
+          <div data-aos='fade-right' className='subbox'>
             <h4>Frequency?</h4>
             <Autocomplete
               ref={ref0}
@@ -241,7 +240,7 @@ export default function Form(props) {
                                             />}
             />
           </div>
-          <div className='subbox'>
+          <div data-aos='fade-left' className='subbox'>
             <h4>Before/After Food?</h4>
             <Autocomplete
               ref={ref1}

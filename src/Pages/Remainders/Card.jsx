@@ -2,15 +2,11 @@ import React,{useEffect,useState,useContext} from 'react';
 import './Card.css'
 import { ThemeContext } from '../../App';
 export default function Card(props) {
-    const [width, setWidth] = useState(0);
+    const [width, setWidth] = useState(window.innerWidth);
     const {theme} = useContext(ThemeContext);
     useEffect(()=>{
       addEventListener("resize", ()=>(setWidth(window.innerWidth)));
     })
-    useEffect(()=>{
-      setWidth(window.innerWidth);
-    })
-    // {Age, Dosage, History, MName, Name, Time}
   return (
     <div className='boxn' style={{backgroundColor: theme?'black':'white', color: theme ? 'green': 'black',borderColor: theme ? 'green':'#DC3535'}} data-aos={width>900? 'zoom-in': 'fade-up'}>
         <div className='Name'><h3>Name: {props.Name}</h3></div>    
