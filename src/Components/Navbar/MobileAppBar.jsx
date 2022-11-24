@@ -76,6 +76,7 @@ const MobileAppBar = () => {
                 position: 'fixed', 
                 display:{xxs:'flex',md:'none'}, 
                 bottom:'0px', 
+                zIndex:'100',
                 height: 'auto',
                 width:`${width}px`, 
                 justifyContent: {xxs: 'center', xs: 'space-around' },

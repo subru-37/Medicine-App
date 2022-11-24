@@ -68,6 +68,7 @@ export default function Form(props) {
             <h4>Enter Your Name: </h4> 
             <TextField 
                 name='Name' 
+                required
                 autoComplete='off'
                 value={value.Name}
                 onChange={handleChange} 
@@ -81,6 +82,7 @@ export default function Form(props) {
             <TextField 
                 name='Age'
                 value={value.Age} 
+                required
                 onChange={handleChange} 
                 label="Enter your age" 
                 autoComplete='off'
@@ -106,6 +108,7 @@ export default function Form(props) {
                 name='MName' 
                 onChange={handleChange} 
                 value={value.MName}
+                required
                 label="Fill this CAREFULLY!" 
                 variant="standard" 
                 autoComplete='off'
@@ -121,7 +124,7 @@ export default function Form(props) {
               options={freq}
               inputValue={value.Dosage}
               sx={{width: '70%'}}
-              renderInput={(params) => <TextField {...params} label="Enter Dosage" />}
+              renderInput={(params) => <TextField {...params} label="Enter Dosage" required/>}
             />
           </div>
           <div className='subbox'>
@@ -134,7 +137,7 @@ export default function Form(props) {
               onChange={handleChangeAuto2}
               options={['Before','After']}
               sx={{width: '70%'}}
-              renderInput={(params) => <TextField {...params} label="Enter Timing" />}
+              renderInput={(params) => <TextField {...params} label="Enter Timing" required />}
             />
           </div>
           <button>Submit</button>
