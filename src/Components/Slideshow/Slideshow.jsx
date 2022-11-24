@@ -35,7 +35,7 @@ const ZoomInExample = () => {
         <div className="parent_box">
             {data.map((x)=>{
                 return(
-                    <div className="boxes">
+                    <div className="boxes" key={x.title}>
                         <Card
                             title={x.title}
                             content={x.content}

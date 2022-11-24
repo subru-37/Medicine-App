@@ -17,7 +17,7 @@ export default function App() {
   const [allvalues, setAllValues] = useState([]);
   const [theme, setTheme] = useState(false);
 
-  console.log(theme)
+  // console.log(theme)
   function onSubmitted(note) {
     setAllValues((preValue) => {
       return [...preValue, note];
