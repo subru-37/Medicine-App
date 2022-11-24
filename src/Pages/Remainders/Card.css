@@ -1,9 +1,9 @@
-.box{
+.boxn{
     border-style:solid;
-    border-width: 10px;
+    border-width: 6px;
     box-sizing: border-box;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 20px;
     min-height: 200px;
     opacity: 0.9;
 }
