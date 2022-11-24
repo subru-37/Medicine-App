@@ -54,7 +54,7 @@
         padding: 0;
     }
     .parent{
-        min-height: 75vh;
-        padding: 3vh 0;
+        min-height: 85vh;
+        padding: 1vh 3px;
     }
 }
