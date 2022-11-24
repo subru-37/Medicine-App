@@ -277,10 +277,9 @@ export default function Form(props) {
                                                 "& .MuiOutlinedInput-input ": {
                                                 color: theme? 'green' : 'inherit'
                                               }}} 
-                                            />}
-            />
+                                            />}/>
           </div>
-          <button className='button' style={{backgroundColor: theme ? "black" :"#F49D1A",border:theme?'0.5px dashed green':'none',minHeight:'50px',borderRadius:'5px',padding:'0 10px'}}><h2 style={{color: theme?'green':'black'}}>Submit</h2></button>
+          <button className='button' style={{backgroundColor: theme ? "black" :"#F49D1A",border:theme?'0.5px dashed green':'none',minHeight:'50px',borderRadius:'5px',padding:'0 10px',margin:'15px'}}><h2 style={{color: theme?'green':'black'}}>Submit</h2></button>
         </form>
     </div>
   )

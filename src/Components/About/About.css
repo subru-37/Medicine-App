@@ -1,13 +1,12 @@
-.boxes{
+.Boxes{
     min-width: 30vw;
     padding: 20px;
-    min-height: 200px;
 }
 .parent_box{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10vw;
+    padding: 10vw 30px;
 }
 @media only screen and (max-width: 960px){
     .parent_box{

@@ -1,10 +1,10 @@
 import React from 'react'
-import ZoomInExample from '../../Components/Slideshow/Slideshow';
+import About from '../../Components/About/About';
 import './Landing.css';
 export default function Landing() {
   return (
     <div className='landing'>
-        <ZoomInExample/>
+        <About/>
     </div>
   )
 }

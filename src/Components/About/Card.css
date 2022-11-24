@@ -1,10 +1,8 @@
-.box{
+.Box{
     border-style:solid;
-    border-width: 10px;
-    border-color: #DC3535;
+    border-width: 7px;
     box-sizing: border-box;
     padding: 10px;
     border-radius: 10px;
-    height: 200px;
     opacity: 0.9;
 }
