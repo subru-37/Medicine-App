@@ -72,11 +72,11 @@ const MobileAppBar = () => {
           onChange={(event, newValue) => {
             setValue(newValue);
           }}
-          sx={{ backgroundColor: '#F49D1A !important', 
-                position: 'fixed', 
+          sx={{ backgroundColor: '#FFE15D !important', 
+                // position: 'fixed', 
                 display:{xxs:'flex',md:'none'}, 
-                bottom:'0px', 
-                zIndex:'100',
+                // bottom:'0px', 
+                // zIndex:'100',
                 height: 'auto',
                 width:`${width}px`, 
                 justifyContent: {xxs: 'center', xs: 'space-around' },
@@ -85,7 +85,7 @@ const MobileAppBar = () => {
           {pages.map(x=>{
             const {icon , label, Link} = x;
             return(
-            <BottomNavigationAction onClick={()=>(history(Link))} sx={{padding: '0',color: 'white'}} label={label} icon={icon}/>
+            <BottomNavigationAction onClick={()=>(history(Link))} sx={{padding: '0',color: '#B01E68',}} label={label} icon={icon}/>
             );
           })}
         </BottomNavigation>
