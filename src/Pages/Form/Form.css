@@ -46,4 +46,7 @@
     .subbox h4{
         padding: 0;
     }
+    .parent{
+        min-height: 70vh;
+    }
 }

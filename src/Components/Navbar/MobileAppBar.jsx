@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState,useEffect } from 'react';
+import { useState,useEffect,useRef } from 'react';
 import './MobileAppBar.css';
 import InfoIcon from '@mui/icons-material/Info';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
@@ -11,6 +11,7 @@ import ViewQuiltIcon from '@mui/icons-material/ViewQuilt';
 import { NavLink } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 const MobileAppBar = () => {
+  const ref1 = useRef();
   const theme = createTheme({
     breakpoints: {
       values: {
@@ -25,11 +26,19 @@ const MobileAppBar = () => {
   });
   const [value, setValue] = useState(0);
   const [width, setWidth] = useState(window.innerWidth);
+  // const [height, setHeight] = useState(0);
+  // useEffect(()=>{
+  //   ref1.current.addEventListener('resize',()=>{
+  //     setHeight(ref1.current.clientHeight);
+  //   })
+  //   console.log(height)
+  // },[height])
   useEffect(()=>{
     window.addEventListener('resize', ()=>{
       setWidth(window.innerWidth)
     })
   },[width])
+
   let history = useNavigate();
   const pages = [
     {
@@ -57,6 +66,7 @@ const MobileAppBar = () => {
     <ThemeProvider theme={theme}>
       <div>
         <BottomNavigation
+          ref={ref1}
           showLabels
           value={value}
           onChange={(event, newValue) => {
