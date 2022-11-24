@@ -6,11 +6,10 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import './ResponsiveAppBar.css';
 import {Link} from 'react-router-dom';
-import pp from "../../assets/jpg/IMG20221025172200.jpg";
-import FormPage from '../../Pages/Form/Form';
-import RemaindersPage from '../../Pages/Remainders/Remainders';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import { NavLink } from "react-router-dom";
+import { useContext} from 'react';
+import { ThemeContext } from '../../App';
 const pages = [
   {
     Name:'About us',
@@ -27,9 +26,9 @@ const pages = [
 
 
 const ResponsiveAppBar = () => {
-
+  const {theme, setTheme} = useContext(ThemeContext);
   return (
-    <AppBar sx={{backgroundColor: '#F49D1A !important', position: 'static',top:'0px'}}>
+    <AppBar sx={{backgroundColor: theme ? 'black': '#F49D1A', position: 'static',top:'0px',borderBottom:theme?'3px dotted green':''}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters sx={{justifyContent: 'space-around'}}>
 		{/* add your logo here replacing adbicon */}
@@ -38,12 +37,11 @@ const ResponsiveAppBar = () => {
               mr: 2,
               display: { xs: 'none', md: 'flex' },
               fontFamily: "'Montserrat', sans-serif",
-              color: 'inherit',
               textDecoration: 'none',
-              fontSize: '1.5rem'
+              fontSize: '1.5rem',
             }}
           >
-            <Link className="Links" to='/'>Med Tracker</Link>
+            <Link className="Links" to='/'><h3 style={{color: theme ? 'green' :'black'}}>Med Tracker</h3></Link>
           </Box>
 
 
@@ -60,7 +58,7 @@ const ResponsiveAppBar = () => {
               width: '100vw'
             }}
           >
-            <Link className="Links" to='/'>Med Tracker</Link>
+            <Link className="Links" to='/'><h3 style={{color: theme ? 'green' :'black'}}>Med Tracker</h3></Link>
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent:'flex-end', maxWidth:'75vw',fontFamily: "'Montserrat', sans-serif" }}>
             {pages.map((page) => {
@@ -70,12 +68,12 @@ const ResponsiveAppBar = () => {
                 key={Name}
                 sx={{ my: 2, color: '#000063', display: 'block' }}
               >
-                <NavLink end className='Links' to={Link}><p style={{margin: '0 1rem'}}>{Name}</p></NavLink>
+                <NavLink end className='Links' to={Link}><p style={{margin: '0 1rem',color: theme ? 'green' :'black'}}>{Name}</p></NavLink>
                 {/* <a href={Link} className='Links'><p style={{margin: '0 1rem'}}>{Name}</p></a> */}
               </Button>
               );
             })}
-            <Button><Brightness4Icon/></Button>
+            <Button onClick={()=>(setTheme(!theme))}><Brightness4Icon/></Button>
           </Box>
         </Toolbar>
       </Container>

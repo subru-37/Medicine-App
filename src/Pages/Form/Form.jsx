@@ -1,8 +1,15 @@
-import React,{useEffect, useState, useRef} from 'react'
+import React,{useContext, useState, useRef} from 'react'
 import './Form.css'
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
+import { ThemeContext } from '../../App';
 export default function Form(props) {
+  const {theme} = useContext(ThemeContext);
+  const styles = theme => ({
+    multilineColor:{
+        color:theme?'white':'inherit'
+    }
+});
   const ref0 = useRef();
   const ref1 = useRef();
   const freq = ['1','2','3','4']
@@ -63,7 +70,7 @@ export default function Form(props) {
   }
   return (
     <div className='parent'>
-        <form onSubmit={onClicked} className='formbox'>
+        <form style={{color:theme?'green':'black'}} onSubmit={onClicked} className='formbox'>
           <div className='subbox'>
             <h4>Enter Your Name: </h4> 
             <TextField 
@@ -72,10 +79,29 @@ export default function Form(props) {
                 autoComplete='off'
                 value={value.Name}
                 onChange={handleChange} 
-                sx={{width: '70%'}} 
+                sx={{
+                    width: '70%',
+                    '& .MuiOutlinedInput-root':{
+                      '& fieldset':{
+                        borderColor: theme?'green':'inherit'
+                      },
+                      '&.Mui-focused fieldset': {
+                        borderColor: 'green',
+                      },
+                    },
+                    '& .MuiOutlinedInput-root:hover':{
+                      '& fieldset':{
+                        borderColor: theme?'green':'inherit'
+                      }
+                    }
+                    }} 
+                InputProps={{style: {color:theme?'green':'inherit'}}}
+                InputLabelProps={{
+                  style: { color:theme?'green':'grey' },
+                }}
+                variant={theme ? 'outlined': 'standard'}
                 label="Sweet name please" 
-                variant="standard" 
-                id="standard-basic"/>
+                id="outlined-basic"/>
           </div>
           <div className='subbox'> 
             <h4>Age: </h4>
@@ -86,7 +112,27 @@ export default function Form(props) {
                 onChange={handleChange} 
                 label="Enter your age" 
                 autoComplete='off'
-                variant="standard" 
+                sx={{
+                    width: '70%',
+                    '& .MuiOutlinedInput-root':{
+                      '& fieldset':{
+                        borderColor: theme?'green':'inherit'
+                      },
+                      '&.Mui-focused fieldset': {
+                        borderColor: 'green',
+                      },
+                    },
+                    '& .MuiOutlinedInput-root:hover':{
+                      '& fieldset':{
+                        borderColor: theme?'green':'inherit'
+                      }
+                    }
+                    }} 
+                InputProps={{style: {color:theme?'green':'inherit'}}}
+                InputLabelProps={{
+                  style: { color:theme?'green':'grey' },
+                }}
+                variant={theme ? 'outlined': 'standard'} 
                 id="standard-basic"/>
           </div>
           <div className='subbox'>
@@ -98,7 +144,26 @@ export default function Form(props) {
                 name='History' 
                 onChange={handleChange} 
                 label="If any?" 
-                variant="standard" 
+                sx={{
+                    width: '70%',
+                    '& .MuiOutlinedInput-root':{
+                      '& fieldset':{
+                        borderColor: theme?'green':'inherit'
+                      },
+                      '&.Mui-focused fieldset': {
+                        borderColor: 'green',
+                      },
+                    },
+                    '& .MuiOutlinedInput-root:hover':{
+                      '& fieldset':{
+                        borderColor: theme?'green':'inherit'
+                      }
+                    }}} 
+                InputProps={{style: {color:theme?'green':'inherit'}}}
+                InputLabelProps={{
+                  style: { color:theme?'green':'grey' },
+                }}
+                variant={theme ? 'outlined': 'standard'}
                 autoComplete='off'
                 id="standard-basic"/>
           </div>
@@ -110,7 +175,29 @@ export default function Form(props) {
                 value={value.MName}
                 required
                 label="Fill this CAREFULLY!" 
-                variant="standard" 
+                sx={{
+                    width: '70%',
+                    '& .MuiOutlinedInput-root':{
+                      '& fieldset':{
+                        borderColor: theme?'green':'inherit'
+                      },
+                      '&.Mui-focused fieldset': {
+                        borderColor: 'green',
+                      },
+                      '& label':{
+                        color:theme?'green':'grey'
+                      }
+                    },
+                    '& .MuiOutlinedInput-root:hover':{
+                      '& fieldset':{
+                        borderColor: theme?'green':'inherit'
+                      }
+                    }}} 
+                InputProps={{style: {color:theme?'green':'inherit'}}}
+                InputLabelProps={{
+                  style: { color:theme?'green':'grey' },
+                }}
+                variant={theme ? 'outlined': 'standard'}
                 autoComplete='off'
                 id="standard-basic"/>
           </div>
@@ -123,8 +210,35 @@ export default function Form(props) {
               name='Dosage'
               options={freq}
               inputValue={value.Dosage}
-              sx={{width: '70%'}}
-              renderInput={(params) => <TextField {...params} label="Enter Dosage" required/>}
+              sx={{width:'70%'}}
+              renderInput={(params) => <TextField {...params}
+                                            label="Enter Dosage" 
+                                            required
+                                            sx={{
+                                              '& .MuiOutlinedInput-root':{
+                                                '& fieldset':{
+                                                  borderColor: theme?'green':'inherit'
+                                                },
+                                                '&.Mui-focused fieldset': {
+                                                  borderColor: theme?'green':'inherit'
+                                                }
+                                              },
+                                              '& .MuiOutlinedInput-root:hover':{
+                                                '& fieldset':{
+                                                  borderColor: theme?'green':'inherit'
+                                                }
+                                              },
+                                              '& label':{
+                                                color:theme?'green':'grey'
+                                              },
+                                              '& label.Mui-focused':{
+                                                color:theme?'green':'grey'
+                                              },
+                                              "& .MuiOutlinedInput-input ": {
+                                                color: theme? 'green' : 'inherit'
+                                              }
+                                              }} 
+                                            />}
             />
           </div>
           <div className='subbox'>
@@ -137,10 +251,36 @@ export default function Form(props) {
               onChange={handleChangeAuto2}
               options={['Before','After']}
               sx={{width: '70%'}}
-              renderInput={(params) => <TextField {...params} label="Enter Timing" required />}
+              renderInput={(params) => <TextField {...params}
+                                            label="Enter Timing" 
+                                            required
+                                            sx={{
+                                              '& .MuiOutlinedInput-root':{
+                                                '& fieldset':{
+                                                  borderColor: theme?'green':'inherit'
+                                                },
+                                                '&.Mui-focused fieldset': {
+                                                  borderColor: theme?'green':'inherit'
+                                                },
+                                              },
+                                              '& .MuiOutlinedInput-root:hover':{
+                                                '& fieldset':{
+                                                  borderColor: theme?'green':'inherit'
+                                                }
+                                              },
+                                              '& label':{
+                                                  color:theme?'green':'grey'
+                                                },
+                                              '& label.Mui-focused':{
+                                                  color:theme?'green':'grey'
+                                                },
+                                                "& .MuiOutlinedInput-input ": {
+                                                color: theme? 'green' : 'inherit'
+                                              }}} 
+                                            />}
             />
           </div>
-          <button>Submit</button>
+          <button className='button' style={{backgroundColor: theme ? "black" :"#F49D1A",border:theme?'0.5px dashed green':'none',minHeight:'50px',borderRadius:'5px',padding:'0 10px'}}><h2 style={{color: theme?'green':'black'}}>Submit</h2></button>
         </form>
     </div>
   )
